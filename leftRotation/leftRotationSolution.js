@@ -1,11 +1,10 @@
 export const rotateLeft = (arr, n) => {
-    const rotated = arr.slice(n); // slice from n to end 
-    for (let i = 0; i < n; i++) { // add the first n elements to the end
-        rotated.push(arr[i]); 
+  const rotated = arr.slice(n); // slice from n to end
+  for (let i = 0; i < n; i++) {
+    if (arr[i] === undefined) {
+      return rotateLeft(arr, n - arr.length); // if n is greater than arr.length repeat the process with n - arr.length
     }
-    return rotated; 
+    rotated.push(arr[i]); // add the first n elements to the end
+  }
+  return rotated;
 };
-
-
-
-
